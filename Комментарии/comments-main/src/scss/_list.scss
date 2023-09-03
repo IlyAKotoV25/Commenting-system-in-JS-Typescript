@@ -1,0 +1,186 @@
+
+.selection {
+	display: flex;
+	align-items: flex-start;
+	position: relative;
+	z-index: 80;
+
+	&__item {
+		color: $grey-dark;
+		font-size: rem(16px);
+		position: relative;
+	}
+
+	&__btn {
+		display: flex;
+		align-items: center;
+		color: $grey-dark;
+		font-size: rem(16px);
+		line-height: 1;
+		margin-right: rem(55px);
+
+		& span {
+			margin-right: rem(10px);
+			border-bottom: rem(1px) solid;
+			transition: color 0.4s, font-size 0.1s linear;
+		}
+
+		& svg {
+			width: rem(21px);
+			height: auto;
+
+			& path {
+				fill: $grey-dark;
+				pointer-events: none;
+			}
+			&.active {
+				transform: rotate(-180deg);
+			}
+		}
+
+		&:hover {
+			cursor: pointer;
+
+			& span {
+				color: $black;
+			}
+		}
+
+		&.active {
+			border-bottom: rem(3px) solid $black;
+			padding-bottom: rem(5px);
+
+			& .filter__btn {
+				&-title {
+					font-size: rem(20px);
+					font-family: $inter-md;
+					color: $black;
+					border-color: transparent;
+				}
+
+				&-dop {
+					font-size: rem(20px);
+				}
+			}
+		}
+	}
+
+	&__list {
+		width: rem(220px);
+		padding: rem(15px) 0 rem(10px) rem(10px);
+		background-color: $white;
+		position: absolute;
+		left: 0;
+		top: rem(30px);
+		z-index: 33;
+		opacity: 0;
+		visibility: hidden;
+		border-radius: rem(5px);
+		box-shadow: 0 0 rem(15px) rgba(0, 0, 0, 0.1);
+		transition: all 0.6s;
+
+		&.active {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		&-item {
+			display: flex;
+			align-items: center;
+			margin-bottom: rem(11px);
+			cursor: pointer;
+			color: $grey-dark;
+			background-color: transparent;
+			transition: all 0.6s;
+			& > * {
+				pointer-events: none;
+			}
+
+			&.active {
+				& svg {
+					opacity: 1;
+				}
+			}
+
+			& svg {
+				width: rem(12px);
+				height: rem(12px);
+				fill: $grey-dark;
+				margin-right: rem(7px);
+				opacity: 0;
+			}
+
+			& span {
+				display: flex;
+				align-items: center;
+			}
+
+			&:hover {
+				color: $black;
+
+				& span {
+					color: $black;
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		flex-wrap: wrap;
+		margin-bottom: 1.0625rem;
+
+		&__item {
+			font-size: rem(16px);
+		}
+	
+		&__btn {
+			font-size: rem(16px);
+			margin-right: rem(25px);
+	
+			& span {
+				margin-right: rem(10px);
+				border-bottom: rem(1px) solid;
+			}
+	
+			& svg {
+				width: rem(18px);
+			}
+	
+			&.active {
+				border-bottom: rem(3px) solid $black;
+				padding-bottom: rem(5px);
+	
+				& .filter__btn {
+					&-title {
+						font-size: rem(20px);
+					}
+	
+					&-dop {
+						font-size: rem(20px);
+					}
+				}
+			}
+		}
+	
+		&__list {
+			padding: rem(15px) rem(22px) rem(10px) rem(22px);
+			top: rem(30px);
+			border-radius: rem(5px);
+			box-shadow: 0 0 rem(15px) rgba(0, 0, 0, 0.1);
+
+	
+			&-item {
+				margin-bottom: rem(10px);
+				& svg {
+					width: rem(12px);
+					height: rem(12px);
+					margin-right: rem(7px);
+				}
+	
+				& span {
+					font-size: vw(28);
+				}
+			}
+		}
+	}
+}
